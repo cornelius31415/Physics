@@ -37,7 +37,7 @@ Created on Thu Nov 21 19:39:44 2024
             D: distance to travel
             
             The following code implements this formula.
-            T
+        
 
 """
 
