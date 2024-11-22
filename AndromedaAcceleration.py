@@ -47,28 +47,28 @@ import numpy as np
 
 acceleration = 9.8              # acceleration of spaceship in m/s^2
 andromedaDistance = 2.5e6       # distance of Andromeda Galaxy in lightyears
-speedOfLight = 3e8              # speed of light in m/s
+speedOfLight = 299792458        # speed of light in m/s
 
 
-def lightyearToKilometer(distance):
+def lightyearToMeter(distance):
     
-    # turn lightyears to kilometers
+    # turn lightyears to meters
     lightyear = speedOfLight * 60 * 60 * 24 * 365
     
     # turn lightyear distance into kilometers
-    distance_km = distance * lightyear 
+    distance_in_meters = distance * lightyear 
     
-    # return the distance in kilometers
-    return distance_km
-    
+    # return the distance in meters
+    return distance_in_meters
 
+    
     
 
 def travelTime(distance):
     
     # distance is given in lightyears
     # needs to be converted to meters
-    distance = lightyearToKilometer(distance)
+    distance = lightyearToMeter(distance)
     
     # terms for the formula to calculate proper time
     term1 = speedOfLight / acceleration
@@ -76,6 +76,9 @@ def travelTime(distance):
     
     # final formula giving travel time in seconds
     timeOfTravel = term1 * np.arccosh(term2 + 1)
+    
+
+    
     # turn into years
     timeOfTravel = timeOfTravel /( 60 * 60 * 24 * 365)
     # round the result to 2 digits
@@ -89,10 +92,6 @@ def travelTime(distance):
 timeToAndromeda = travelTime(andromedaDistance)
 
 print("Travel time to Andromeda Galaxy is", timeToAndromeda, "years")
-
-
-
-
 
 
 
